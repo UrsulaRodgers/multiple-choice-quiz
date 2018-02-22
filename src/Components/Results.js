@@ -5,11 +5,11 @@ const results = (props) => {
       return (
         element === 1 
           ? <div key={index}>
-              <h3>Question {index+1}.</h3>
+              <h4>Question {index+1}.</h4>
               <p>Correct</p> 
             </div>
           : <div key={index}>
-              <h3> Question {index+1}.</h3>
+              <h4> Question {index+1}.</h4>
               <p> Incorrect</p>
             </div>
         )
@@ -19,12 +19,11 @@ const results = (props) => {
 
     return (
       	<div className="results">
-       		<h2>Results</h2>
-      		 	<div>{translateResponse}</div>
+      		 <div>{translateResponse}</div>
        		<div>
-         		<h3>Your Final Score Is:</h3>
-          			{totalScore} out of {props.questions.length}!
-      	    	</div>
+         		<h2>Your Final Score Is:</h2>
+          		<strong>{totalScore} out of {props.questions.length}!</strong>
+      	    </div>
       	    	<button 
       	    		className="tryAgainBtn" onClick={()=> props.clickHandler()}>Try Again</button>
       	</div>

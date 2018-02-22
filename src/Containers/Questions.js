@@ -62,30 +62,37 @@ class Questions extends Component {
 
 		const viewChanger = (
 			!this.state.formSubmitted
-				? <form className="testQuestions" onSubmit={this.answersSubmit}>
-					{this.state.questions.map((question, index)=>{
-						return (
-							<div key={index}>
-									<p><strong>Question {index+1}. {question.question}</strong></p>
-									<AnswerOptions 
-										choices={question.answers} 
-										name={question.name} 
-										handler={this.handleChange} 
-									/>
-							</div>			
-						)
-					})}
-					<input 
-						type="submit" 
-						value="Submit Answers" 
-						className="submitAnswers" 
-					/>
-				  </form>
-				: <Results 
-					questions={this.state.questions} 
-					results={this.state.results} 
-					clickHandler={this.tryAgain} 
-				  />
+				? <div>
+					<h1>Australian Trivia Quiz</h1>
+					  <form className="testQuestions" onSubmit={this.answersSubmit}>
+						{this.state.questions.map((question, index)=>{
+							return (
+								<div key={index}>
+										<p><strong>Question {index+1}. {question.question}</strong></p>
+										<AnswerOptions 
+											choices={question.answers} 
+											name={question.name} 
+											handler={this.handleChange} 
+										/>
+								</div>			
+							)
+						})}
+						<input 
+							type="submit" 
+							value="Submit Answers" 
+							className="submitAnswers" 
+						/>
+					  </form>
+				  </div>
+
+				: <div>
+					<h1>Your Results</h1>
+					<Results 
+						questions={this.state.questions} 
+						results={this.state.results} 
+						clickHandler={this.tryAgain} 
+				  	/>
+				  </div>
 		);
 
 		return (

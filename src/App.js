@@ -6,7 +6,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-       <h1>Australian Trivia Quiz</h1>
        <Questions />
       </div>
     );
