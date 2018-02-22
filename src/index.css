@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+	margin: 3% auto 0 auto;
+	padding-top: 1%;
+	max-width:800px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.testQuestions {
+	background-color: #E4B508;
+	text-align: center;
+	padding-top:1%;
+	padding-bottom:3%;
+	border-radius:10px;
+}
+
+.answerChoices {
+	display:inline-block;
+	text-align:left;
+	margin-bottom:20px;
+}
+
+.submitAnswers, .tryAgainBtn {
+	margin-top:3%;
+	border:none;
+	border-radius:3px;
+	background-color:#EEF4F3;
+	padding:3px 6px;
+}
+
+.results {
+	text-align: center;
+	background-color:#1BBE0D;
+	padding-top:1%;
+	padding-bottom:3%;
+	border-radius:10px;
+}

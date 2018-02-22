@@ -1,0 +1,55 @@
+{
+	"questions":
+	[
+	{
+		"question": "What is the capital city of Australia?",
+		"name":"Q1",
+		"answers": [
+			{"a":"Sydney"},
+			{"b":"Melbourne"},
+			{"c":"Canberra"},
+			{"d":"Hobart"}
+		]
+	},
+	{
+		"question": "Which of these animals is a monotreme?",
+		"name":"Q2",
+		"answers": [
+			{"a" : "Kangaroo"},
+			{"b" : "Echidna"},
+			{"c": "Emu"},
+			{"d": "Dingo"}
+		]
+	},
+	{
+		"question": "Which of these astronauts was born in Australia?",
+		"name":"Q3",
+		"answers": [
+			{"a": "Andy Thomas"},
+			{"b": "Nicholas Patrick"},
+			{"c": "Wendy Lawrence"},
+			{"d": "John Glenn"}
+		]
+	},
+	{
+		"question": "The largest sand island in the world is found in Australia. What is its name?",
+		"name":"Q4",
+		"answers": [
+			{"a": "Kangaroo Island"},
+			{"b": "Phillip Island"},
+			{"c": "Fraser Island"},
+			{"d": "Hamilton Island"}
+		]
+	},
+	{
+		"question": "How may ships were in the First Fleet?",
+		"name":"Q5",
+		"answers": [
+			{"a": "13"},
+			{"b": "9"},
+			{"c": "15"},
+			{"d": "11"}
+		]
+	}
+	]
+}
