@@ -9,7 +9,6 @@ export const postStart = () => {
 
 export const returnResults = (values) => {
 	return dispatch => {
-		console.log(values);
 		dispatch(postStart());
 		axios.post('http://localhost:3001/users', {answers: values})
         .then(response => {
