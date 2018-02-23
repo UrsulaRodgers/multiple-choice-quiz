@@ -76,7 +76,8 @@ class Questions extends Component {
 					<h1>Your Results</h1>
 					<Results 
 						questions={this.state.questions} 
-						results={this.props.results} 
+						results={this.props.results}
+						error={this.props.error} 
 						clickHandler={this.tryAgain} 
 				  	/>
 				  </div>
@@ -93,7 +94,8 @@ class Questions extends Component {
 const mapStateToProps = state => {
 	return {
 		results: state.results,
-		formSubmitted: state.formSubmitted
+		formSubmitted: state.formSubmitted,
+		error: state.error
 	};
 };
 

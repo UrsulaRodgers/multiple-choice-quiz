@@ -18,15 +18,19 @@ const results = (props) => {
     const totalScore = props.results.reduce((a, b) => a + b, 0);
 
     return (
-      	<div className="results">
+        !props.error
+      	?<div className="results">
       		 <div>{translateResponse}</div>
        		<div>
          		<h2>Your Final Score Is:</h2>
           		<strong>{totalScore} out of {props.questions.length}!</strong>
       	    </div>
-      	    	<button 
-      	    		className="tryAgainBtn" onClick={()=> props.clickHandler()}>Try Again</button>
+      	    	<button className="tryAgainBtn" onClick={()=> props.clickHandler()}>Try Again</button>
       	</div>
+        :<div className="results">
+          <h1>Error! Your results could not be obtained at this time...</h1>
+          <button className="tryAgainBtn" onClick={()=> props.clickHandler()}>Try Again</button>
+        </div>
     );
 }
 

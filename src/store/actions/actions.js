@@ -17,7 +17,6 @@ export const returnResults = (values) => {
         })
         .catch(error => {
           dispatch({type: actionTypes.POST_ERROR, error});
-          //alert(error);
         });
 	};
 }
