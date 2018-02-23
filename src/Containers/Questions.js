@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 import AnswerOptions from '../Components/AnswerOptions';
 import Results from '../Components/Results';
 //need to get the questions from the server - this is a placeholder for now
@@ -13,9 +15,7 @@ class Questions extends Component {
 		super();
 
 		this.state = { 
-			questions,
-			formSubmitted: false,
-			results:[]
+			questions
 		}
 
 		this.handleChange = this.handleChange.bind(this);
@@ -27,7 +27,6 @@ class Questions extends Component {
 
 	handleChange(event) {
 		answers[event.target.name] = event.target.value;
-		console.log(answers);
 	}
 
 	answersSubmit(event) {
@@ -35,33 +34,22 @@ class Questions extends Component {
 
 		if (Object.keys(answers).length === questions.length) {
 			const values = Object.entries(answers).sort();
-
-			 axios.post('http://localhost:3001/users', {
-          	 answers : values
-        })
-        .then(response => {
-          this.setState({results: response.data, formSubmitted: true});
-        })
-        .catch(error => {
-          alert(error);
-        });
+			this.props.getResults(values);	 
 		} else {
 			alert("Please answer all questions before submitting.");
-		}
-
-		
+		}	
 
 	}
 
 	tryAgain() {
-		this.setState({ formSubmitted: false, results:[]});
 		answers = {};
+		this.props.reset();
 	}
 
 	render() {
 
 		const viewChanger = (
-			!this.state.formSubmitted
+			!this.props.formSubmitted
 				? <div>
 					<h1>Australian Trivia Quiz</h1>
 					  <form className="testQuestions" onSubmit={this.answersSubmit}>
@@ -89,7 +77,7 @@ class Questions extends Component {
 					<h1>Your Results</h1>
 					<Results 
 						questions={this.state.questions} 
-						results={this.state.results} 
+						results={this.props.results} 
 						clickHandler={this.tryAgain} 
 				  	/>
 				  </div>
@@ -103,4 +91,18 @@ class Questions extends Component {
 	}
 }
 
-export default Questions;
+const mapStateToProps = state => {
+	return {
+		results: state.results,
+		formSubmitted: state.formSubmitted
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+     getResults: (answers) => dispatch(actions.returnResults(answers)),
+     reset: () => dispatch(actions.resetPage())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);

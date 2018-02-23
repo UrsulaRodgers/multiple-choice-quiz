@@ -1,0 +1,1 @@
+export { returnResults, resetPage } from './actions';

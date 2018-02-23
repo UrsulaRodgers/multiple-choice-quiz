@@ -20,6 +20,8 @@ router.post('/', function(req, res, next){
     		}
   	}
 
+    console.log(compareAnswers);
+
 	res.status(200).send(compareAnswers);
 });
 
