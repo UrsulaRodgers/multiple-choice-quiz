@@ -31,7 +31,7 @@ class Questions extends Component {
 	answersSubmit(event) {
 		event.preventDefault();
 
-		if (Object.keys(answers).length === questions.length) {
+		if (Object.entries(answers).length === questions.length) {
 			const values = Object.entries(answers).sort();
 			this.props.getResults(values);	 
 		} else {
